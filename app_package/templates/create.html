@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+    <p>
+        <a href="{{url_for('logout')}}">Logout </a>
+    </p>
+    <form action="{{url_for('create')}}" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <fieldset>
+        <legend>Add Customer</legend>
+        <p>
+        {{form.cid.label}}{{form.cid(size=32)}}
+        {% for error in form.cid.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{form.name.label}}{{form.name(size=32,autofocus=True)}}
+        {% for error in form.name.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        
+        <p>
+        {{form.acctype.label}}{{form.acctype(size=32)}}
+        {% for error in form.acctype.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{form.balance.label}}{{form.balance(size=32)}}
+        {% for error in form.balance.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{form.mobile.label}}{{form.mobile(size=32)}}
+        {% for error in form.mobile.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{form.aadhar.label}}{{form.aadhar(size=32)}}
+        {% for error in form.aadhar.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{form.submit()}}
+        </p>
+    </fieldset>
+      <p><a href="{{url_for('menu')}}">Back</a></p>
+</form>
+{% endblock %}

@@ -1,0 +1,31 @@
+{%extends "base.html" %}
+{%block content%}
+<form action="{{url_for('index')}}" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <div class="container-fluid">
+        <div class="col-10"><        
+        <b>
+        <p>
+        {{form.username.label}}{{form.username(size=32,autofocus=True)}}
+        {% for error in form.username.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{form.password.label}}{{form.password(size=32)}}
+        {% for error in form.password.errors %}
+            <span style="color:red;">{{error}}</span>
+        {% endfor %}
+        </p>
+        <p>
+        {{form.remember_me()}}{{form.remember_me.label}}
+        </p>
+        <button class="btn btn-primary">
+        {{form.submit()}}
+        </button>
+    </b>
+    </div>
+    </div>
+    <p><a href="{{url_for('register')}}">click here to register</a></p>
+</form>
+{%endblock%}
